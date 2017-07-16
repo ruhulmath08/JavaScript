@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Calculate Sum</title>
+        <script>
+        	function calSum(){
+				var n1 = document.getElementById("number1").value;
+				var n2 = document.getElementById("number2").value;
+				n1 = parseInt(n1);
+				n2 = parseFloat(n2);
+				var sum =0;
+				for(n1; n1 <= n2; n1++){
+					sum += n1;
+				}
+				document.getElementById("demo").innerHTML = "Sum is: "+sum;
+			}
+        </script>
+    </head>
+    
+    <body>
+    	<input type="text" placeholder="input number one" id="number1"><br>
+        <input type="text" placeholder="input number one" id="number2"><br>
+        <input type="button" value="Calculate Sum" onClick="calSum()"><br>
+        <p id="demo"></p>
+    </body>
+</html>
