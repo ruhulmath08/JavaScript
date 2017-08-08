@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Factorial Number</title>
+        <script>
+        	function calFactorial(){
+				var i = document.getElementById("num").value;
+				var fact = 1;
+				for(var j=1; j<=i; j++){
+					fact *= j;
+				}
+				document.getElementById("demo").innerHTML = +i+"! = "+fact;
+			}
+        </script>
+    </head>
+    
+    <body>
+    	<h2>Calculate Factorial Number</h2>
+    	<form>
+        	<input type="text" placeholder="Input a positive number" id="num" value="6"><br>
+            <input type="button" value="Calculate Factorial" onClick="calFactorial()"><br><br>
+            <h3>Factorial</h3>
+            <p id="demo"></p>
+        </form>
+    </body>
+</html>

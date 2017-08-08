@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Search String</title>
+        <script>
+        	function searchString(){
+				var m_str = document.getElementById("istr").value;
+				var s_str = document.getElementById("sstr").value;	
+				var m_string = m_str.search(s_str);
+				if(m_string>=1){
+					alert("Sub string match and index possition: "+ m_string)
+				}else{
+					alert("Sub string not match")
+				}
+			}
+        </script>
+    </head>
+    
+    <body>
+    	<form>
+        	<input type="text" placeholder="input a string" id="istr" value="Hello, my name is ruhul"><br>
+            <input type="text" placeholder="input search string" id="sstr"><br><br>
+            <input type="button" value="Search" onClick="searchString()">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Form Validation</title>
+        <script>
+        	function checkMail(){
+				var email = document.getElementById("email").value;
+				var i,j;
+				i=email.indexOf('@');
+				j=email.lastIndexOf('.');
+				if(i>0 && i<j-1){
+					alert("valid mail");
+					document.getElementById("demo").innerHTML = "Email is: "+email;
+				}else{
+					alert("Invalid mail");
+					return;
+				}	
+			}
+        </script>
+    </head>
+    
+    <body>
+    	<form>
+        	<input type="email" placeholder="Inter your mail" id="email"><br>
+            <input type="button" value="Check Mail" onClick="checkMail()"><br>
+            <p id="demo"></p>
+        </form>
+    </body>
+</html>

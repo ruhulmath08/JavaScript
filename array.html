@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Display Array in Sorted Order</title>
+        <script>
+        	var arr = new Array("Reza", "Borna", "Guni", "Kapli", "Mezba")
+			var arr_sort = arr.sort();
+			function displayArray(){
+				document.getElementById("dary").innerHTML = "Array: "+arr;
+			}
+			function displayArraySo(){
+				document.getElementById("dsortary").innerHTML = "Array after sort : "+arr_sort;
+			}
+        </script>
+    </head>
+    
+    <body>
+    	<input type="button" onClick="displayArray()" value="Display Array" id="darr"><br><br>
+        <input type="button" onClick="displayArraySo()" value="Sorted Array" id="darrso"><br><br>
+        <p id="dary"></p>
+        <p id="dsortary"></p>
+    </body>
+</html>

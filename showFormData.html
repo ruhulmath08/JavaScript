@@ -2,21 +2,20 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Show Form Data</title>
+        <title>Show form Data</title>
         <script>
 			function showData(){
 				with (document){
-					//for name
-					var name = getElementById("name").value;
+					//name
+					var name = getElementById("fname").value;
 					if(name.length==0 || name.length>10){
-						alert("Name must be between 1 to 10 character!!");
+						alert("Name must be 1 to 10 character");
 						return;
 					}
-					
-					//for Email
-					var email = getElementById("email").value;
-					var i = email.indexOf("@");
-					var j = email.lastIndexOf(".");
+					var c_email = getElementById("email").value;
+					var i,j;
+					i= c_email.indexOf('@');
+					j= c_email.lastIndexOf('.');
 					if(i>0 && i<j-1){
 						alert("Valid Email");
 					}else{
@@ -24,50 +23,49 @@
 						return;
 					}
 					
-					//for password
-					var password = getElementById("password").value;
-					if(password.length < 5){
-						alert("Password must be greater than 5 charecter");
+					//pass
+					var password = getElementById("pass").value;
+					if(password.length<=5){
+						alert("Password must be greater than 5 character");	
 						return;
 					}
 					
-					//for hobby
+					//hobby
 					var hobby = "";
 					if(getElementById("reading").checked == true){
-						hobby += "Reading ";
+						hobby += "Reading ";	
 					}
 					if(getElementById("writing").checked == true){
-						hobby += "Writing ";
+						hobby += "Writing ";	
 					}
 					if(getElementById("coding").checked == true){
-						hobby += "Coding";
+						hobby += "Coding ";	
 					}
 					
-					//for Divission
-					var divission = getElementById("divission").value;
+					var c_div = getElementById("divission").value;
 					
-					//for subject
+					//subject
 					var subj = "";
-					if(getElementById("csharp").checked == true){
-						subj += "C#";
-					}
 					if(getElementById("java").checked == true){
-						subj += "Java";
+						subj += "Java ";	
 					}
 					if(getElementById("wpsi").checked == true){
-						subj += "WPSI";
+						subj += "WPSI";	
+					}
+					if(getElementById("ddd").checked == true){
+						subj += "DDD";	
 					}
 					
-				win.document.write("Name: "+name+"<br>Email: "+email+"<br>Password: "+password+"<br>Hobby: "+hobby+"<br>Divission: "+divission+"<br>Subject: "+subj);
-				}
+				win.document.write("Name: "+name+"<br>Email: "+c_email+"<br>Password: "+password+"<br>Hobby: "+hobby+"<br>Subject: "+subj+"<hr>");
+				}	
 			}
-			//open window
+        	//open
 			var win;
 			function openWindow(){
-				win = window.open("", "", "width=400, height=400");
-				win.document.write("<center><h2>Displlay Form Data</h2></center>");
+				win = window.open("","","width=300, height=300");	
+				win.document.write("<center><h2>Show Form Data</h2></center>");
 			}
-			//for window close
+			//close
 			function closeWindow(){
 				win.close();	
 			}
@@ -78,29 +76,28 @@
     	<code>
             <pre>
                 <form>
-                    Name:		<input type="text" id="name">
-                    Email:		<input type="text" id="email">
-                    Password: 		<input type="password" id="password">
+                Name:		<input type="text" value="ruhul" id="fname">
+                Email:		<input type="email" value="ruhulmath08@gmail.com" id="email">
+                Password:	<input type="password" value="123456" id="pass">
+                
+                Hobby:
+                    <input type="checkbox" name="hobby" id="reading">Reading
+                    <input type="checkbox" name="hobby" id="writing">Writing
+                    <input type="checkbox" name="hobby" id="coding">Coding
                     
-                    Hobby:
-                            <input type="checkbox" name="hobby" id="reading">Reading
-                            <input type="checkbox" name="hobby" id="writing">Writing
-                            <input type="checkbox" name="hobby" id="coding">Coding
-                            
-                    Divission:
-                                <select id="divission">
-                                    <option>Select Divission</option>
-                                    <option>Dhaka</option>
-                                    <option>Rajshahi</option>
-                                    <option>Khulana</option>
-                                </select>
-                                
-                    Subject:
-                            <input type="checkbox" name="subject" id="csharp">C#
-                            <input type="checkbox" name="subject" id="java">Java
-                            <input type="checkbox" name="subject" id="wpsi">WPSI
-                            
-                    <input type="button" value="Open Window" onClick="openWindow()"><input type="button" value="Show Data" onClick="showData()"><input type="button" value="Close Window" onClick="closeWindow()">
+                Divission: 
+                    <select id="divission">
+                        <option>Select Divission</option>
+                        <option>Dhaka</option>
+                        <option>Rajshahi</option>
+                    </select>
+                    
+                Subject:
+                    <input type="radio" name="subject" id="java">Java
+                    <input type="radio" name="subject" id="wpsi">WPSI
+                    <input type="radio" name="subject" id="ddd">DDD
+                    
+                <input type="button" value="Open Window" onClick="openWindow()"><input type="button" value="Show Data" onClick="showData()"><input type="button" value="Close Window" onClick="closeWindow()">
                 </form>
             </pre>
         </code>
