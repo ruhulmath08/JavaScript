@@ -1,0 +1,10 @@
+4. Where To Put Yout JS:
+------------------------
+We should place JavaScript link at the botton of our body tag if we use a small pic of code. When we use large number of code we should use a seperate file and link it in our "index.html" file.
+
+5. Google Chrome Developer Tools:
+---------------------------------
+
+6 - Basic JavaScript Syntax & Rules:
+------------------------------------
+JavaScript runs from top to botton
