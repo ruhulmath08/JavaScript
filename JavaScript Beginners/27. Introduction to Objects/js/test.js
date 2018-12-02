@@ -1,0 +1,1 @@
+var myCar = new myCar();
