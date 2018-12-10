@@ -1,0 +1,7 @@
+1) Code Editor: VSCode
+
+2) Environment: NodeJS
+
+3) Install packahe
+    a) Live Server
+ 

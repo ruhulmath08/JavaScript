@@ -1,0 +1,293 @@
+1) Difference between JavaScript, JScript & ECMAScript:
+-------------------------------------------------------
+Javascript is the original name when the language was developed by Netscape.
+
+JScript is Microsoft's name of their own implementation.
+
+ECMAScript is the name of the language standard developed by ECMA, from the original Javascript implementation.
+
+So, it's just one language, with different implementations.
+
+
+2)Add JavaScript in Browser:
+-----------------------------
+We can add JavaScript in "head" section or "body" section. But the best practice is add JavaScript at the end of all existing element in body section. There are two reason for that.
+    a) If we put JavaScript in the head section, we might have a lot of JavaScript code it may make our browser busy to parsing and executing JavaScript code and would not be able to render the content of the page. This will create a bad user experience.
+
+    b) By placing JavaScript at the bottom, our style, content, and media could download more quickly giving the perception of improved performance.
+
+3) Difference between let vs const vs var in JavaScript:
+--------------------------------------------------------
+The difference is scoping. var is scoped to the nearest function block and let is scoped to the nearest enclosing block, which can be smaller than a function block. Both are global if outside any block.
+
+Global:
+They are very similar when used like this outside a function block.
+
+let me = 'go';  // globally scoped
+var i = 'able'; // globally scoped
+
+`const` is similar to C or C++'s `const` only. Once you assign a value to the variable declared as `const`, you cannot assign some other value to the const variable.
+
+However, global variables defined with let will not be added as properties on the global window object like those defined with var.
+
+console.log(window.me); // undefined
+console.log(window.i); // 'able'
+
+Function:
+They are identical when used like this in a function block.
+
+function ingWithinEstablishedParameters() {
+    let terOfRecommendation = 'awesome worker!'; //function block scoped
+    var sityCheerleading = 'go!'; //function block scoped
+}
+
+Block:
+Here is the difference. let is only visible in the for() loop and var is visible to the whole function.
+
+function allyIlliterate() {
+    //tuce is *not* visible out here
+
+    for( let tuce = 0; tuce < 5; tuce++ ) {
+        //tuce is only visible in here (and in the for() parentheses)
+        //and there is a separate tuce variable for each iteration of the loop
+    }
+
+    //tuce is *not* visible out here
+}
+
+function byE40() {
+    //nish *is* visible out here
+
+    for( var nish = 0; nish < 5; nish++ ) {
+        //nish is visible to the whole function
+    }
+
+    //nish *is* visible out here
+}
+
+Redeclaration:
+Assuming strict mode, var will let you re-declare the same variable in the same scope. On the other hand, let will not:
+
+'use strict';
+let me = 'foo';
+let me = 'bar'; // SyntaxError: Identifier 'me' has already been declared
+'use strict';
+var me = 'foo';
+var me = 'bar'; // No problem, `me` is replaced.
+
+Note: Don't confuse `const` with mutable objects. As I said, you cannot assign some other value to the const variables, but you can modify the `const` value. For example,
+
+'use strict';
+const a = {};
+a.a = 1;
+
+is perfectly valid, because we are not changing what is assigned to `a`, but we are changing the object pointed by `a`
+
+4) Variable declaration rules in JavaScript:
+--------------------------------------------
+    a) Cannot be a reserved keyword (this, if, ...)
+    b) Should be meaningful
+    c) Cannot start with a number (1name)
+    d) Cannot contain a space or hyphen (-)
+    e) Are case-sensitive
+    f) Modern best practice is to declare each variable separately
+        let firstName = "Ruhul";
+        let lastName = "Amin";
+
+5) Primitive or value type:
+---------------------------
+In primitive type we have
+    a) string
+        let name = "Ruhul";
+
+    b) number
+        let number = 10;
+
+    c) boolean
+        let boolValue = false;
+
+    d) undefined (undefined is a type and a value)
+        let myNumber;
+
+    e) null
+        let selectedColler = null;
+
+6) Reference type in JavaScript:
+--------------------------------
+In Reference type we have 
+    a) object
+    b) array
+    c) function
+
+6) Dynamic Type:
+---------------
+We have two types of programming languages
+    a) static
+    b) dynamic
+
+In static languages when we declare a variabe the type of the variable is set and we cannot change thr type in future.
+
+In a dynamic language like JavaScript we can change the type of a variable after declaration.
+
+Example:
+-------
+typeof name
+"string"
+name = 2;
+typeof name
+"number"
+
+7) Objects:
+-----------
+JavaScript is designed on a simple object-based paradigm. An object is a collection of properties,and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method. In addition to objects that are predefined in the browser, you can define your own objects. 
+
+Example:
+--------
+let person = {
+  name: "ruhul",
+  age: 30,
+  job: "programmer"
+};
+here person is an object.
+
+there are two way to change the property
+    a) Dot notation
+        person.name = 'John';
+
+    b) Bracket notation 
+        person['name'] = 'Reza';
+
+8) Arrays:
+----------
+Array is a datastructure that use to represent a list of data. In JavaScript array is haterogenious annd dynamically we can change array size in JavaScript;
+
+let selectedColores = [];
+here selectedColler is an empty array and [] is array literal.
+
+9) Functions:
+------------
+Functions are one of the fundamental building blog in JavaScript. A function is a set of statement that perform a task or calculate a value.
+
+function greet(name, lastName) {
+  console.log("Hello " + name + " " + lastName);
+}
+
+greet("Ruhul", "Amin");
+greet("John", "Smith");
+
+10) Types of function:
+----------------------
+
+//perform a task
+function greet(name, lastName) {
+  console.log("Hello " + name + " " + lastName);
+}
+
+greet("Ruhul", "Amin");
+greet("John", "Smith");
+
+//calculate a value
+function square(number){
+    return number*number;
+}
+
+let number = square(10);
+console.log(number);
+
+As a function argument we can pass a value or a expression.
+
+10) Operators in JavaScript:
+----------------------------
+In JavaScript we use Operators along with our variables and constrant to create expressions. And with this expression we can implement logics and algorithms. In JavaScript we have different type of Operators and they are
+    a) Arithmetic Operators
+    b) Assignment Operators
+    c) Comparison Operators
+    d) Logical operators
+    e) Bitwise Operators
+
+a) Arithmetic Operator:
+-----------------------
+We use Arithmetic operation for performing calculation. The basic arithmetic operators are (+, -, *, /, % and **)
+
+b) Assignment Operators:
+------------------------
+    x++ => x = x + 1;
+    x-- => x = x - 1;
+
+c) Comparison Operators
+We use Comparison operators to compare the value of operator. 
+Comparison operators are used in logical statements to determine equality or difference between variables or values.
+
+    ==	equal to
+    ===	equal value and equal type
+    !=	not equal
+    !==	not equal value or not equal type
+    >	greater than
+    <	less than
+    >=	greater than or equal to
+    <=	less than or equal to
+
+    let x = 1;
+    //relational operator
+    console.log(x > 0);
+    console.log(x >= 1);
+    console.log(x < 1);
+    console.log(x <= 0);
+
+    //Equality operator
+    console.log(x === 1);
+    console.log(x !== 1);
+
+d) Equality operators
+
+    //Strict Equality (Type + Value)
+    console.log(1=== 1) //true 
+    console.log('1' === 1) //false
+
+    //Lose Equality (Value)
+    console.log(1 == 1) //true
+    console.log('1' == 1) //true
+    console.log('1' == true) //true
+
+e) Ternart Operator:
+--------------------
+    let points = 100;
+    let type = points > 100 ? 'gold' : 'silver';
+    console.log(type); //silver
+
+f) Logical Operator:
+--------------------
+Logical operators are used to determine the logic between variables or values.
+
+    //Logical AND (&&)
+    //Returns true if both operands ate TRUE
+    console.log(true && true) // true
+
+    //Logical OR (||)
+    //Returns true if one of the operands is TRUE
+    console.log(true || false) // true
+
+    //NOT (!)
+    //Always returns the opposit
+    console.log(!true) // false
+      
+g) Logical Operators with Non-Booleans:
+---------------------------------------
+If the operator is not boolean true or false it will try to interprated as "Truthy" or "Falsy"
+
+    //Falsy(false)
+    //undefined
+    //null
+    //0
+    //false
+    //''
+    //NaN
+If we use any of the value in the logical expression we will be treated as "Falsy" which is like as boolean false.
+
+    //Anything that is not "Falsy" is "Truthy"
+
+    //Short-circuiting
+    /Two important aspects of logical operators in JavaScript is that they evaluate from left to right, and they short-circuit.
+    
+    true || ****
+    // true
