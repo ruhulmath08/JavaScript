@@ -1,0 +1,4 @@
+
+For complete the "React Crash Course 2018 by Mosh" we have to know the following things
+    1) Object-Oriented programming in JavaScript
+    2) For react complete details go to "https://www.youtube.com/watch?v=NCwa_xi0Uuc"

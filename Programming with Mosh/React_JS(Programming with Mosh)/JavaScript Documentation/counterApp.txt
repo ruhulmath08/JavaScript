@@ -1,0 +1,7 @@
+1) Create app "create-react-app counter-app"
+
+2) Install Bootstrap "npm i bootstrap@4.1.1"
+
+3) Add css in index.js file 'import "bootstrap/dist/css/bootstrap.css";'
+
+4) 

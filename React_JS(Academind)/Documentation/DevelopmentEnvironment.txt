@@ -1,3 +1,0 @@
-
-IDE: Atom
-Package: atom-react-autocomplete

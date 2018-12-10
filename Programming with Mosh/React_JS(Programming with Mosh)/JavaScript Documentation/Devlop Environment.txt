@@ -1,0 +1,20 @@
+1) For working with React JS we have to install "Node.js" first
+
+2) Now install React.js "npm i -g create-react-app@1.5.2"
+
+3) Download Visual Studio Code
+    a) Install-> Simple React Snippets (Package For quickly shortcut code)
+    b) Install-> Prettier (Code formater Package)
+    c) Goto File-> Preferences-> Settings-> User Settings and add "editor.formatOnSave": true
+    d) Goto File-> Preferences-> Color Theme (Ayu Mirage)
+
+3) Creare First React App.
+    a) Open terminal and run "create-react-app react-app" Create react app mwith zero configuration. We dont have to do any configuration. All configuration is done automatically.
+    Our installation includes
+        i)   Development Server
+        ii)  Webpack
+        iii) Bable
+
+4) Goto the folder react-app
+    a) cd react-app
+    b) npm start
