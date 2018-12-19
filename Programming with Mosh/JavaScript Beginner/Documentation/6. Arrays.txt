@@ -1,0 +1,400 @@
+1. Adding Element:
+-----------------
+const number = [3, 4];
+
+//End-> add element at the end
+number.push(5, 6);
+console.log(number);
+
+//Beginning-> add element at the beginning
+number.unshift(1, 2);
+console.log(number);
+
+//Middle-> add element in middle
+number.splice(2, 0, 3.5);
+console.log(number);
+
+The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements.
+
+2. Finding elementg (Primitive Type):
+-------------------------------------
+a)indexOf():
+------------
+The indexOf() method searches the array for the specified item, and returns its position.
+
+The search will start at the specified position, or at the beginning if no start position is specified, and end the search at the end of the array.
+
+Returns -1 if the item is not found.
+
+If the item is present more than once, the indexOf method returns the position of the first occurence.
+
+Note: The first item has position 0, the second item has position 1, and so on.
+
+const numbers = [1, 2, 3, 1, 5];
+console.log(numbers.indexOf(1, 2)); //3
+console.log(numbers.indexOf(2)); //1
+
+b) lastIndexOf():
+-----------------
+The lastIndexOf() method searches the array for the specified item, and returns its position.
+
+The search will start at the specified position, or at the end if no start position is specified, and end the search at the beginning of the array.
+
+Returns -1 if the item is not found.
+
+If the item to search for is present more than once, the lastIndexOf method returns the position of the last occurence.
+
+const numbers = [1, 2, 3, 1, 5, 1];
+console.log(numbers.lastIndexOf(1)); //5
+console.log(numbers.lastIndexOf(1, 4)); //3
+
+c) includes():
+--------------
+Element exist or not in an array:
+const numbers = [1, 2, 3, 5];
+console.log(numbers.includes(5)); //true
+console.log(numbers.includes(8)); //false
+
+const numbers = [1, 2, 3, 5];
+console.log(numbers.indexOf(2) !== -1);
+
+3. Finding elementg (Reference Type):
+-------------------------------------
+
+a)find():
+---------
+The find() method returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
+const courses = [{ id: 1, name: "a" }, { id: 2, name: "b" }];
+
+const course = courses.find(function(course) {
+  return course.name === "a";
+});
+
+console.log(course); //{id: 1, name: "a"}
+
+b)findIndex():
+--------------
+The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating no element passed the test.
+const courses = [
+  { id: 1, name: "a" },
+  { id: 2, name: "b" }
+];
+
+const course = courses.findIndex(function(course) {
+  return course.name === "a";
+});
+
+console.log(course); //0
+
+4) arrow functions:
+-------------------
+Arrow functions (also called “fat arrow functions”) are undoubtedly one of the more popular features of ES6. They introduced a new way of writing concise functions.
+
+Normal function:
+----------------
+function timesTwo(params) {
+  return params * 2
+}
+timesTwo(4);  // 8
+
+const courses = [
+  { id: 1, name: "a" },
+  { id: 2, name: "b" }
+];
+
+const course = courses.findIndex(function(course) {
+  return course.name === "a";
+});
+
+console.log(course); //0
+
+Arrow function:
+---------------
+var timesTwo = params => params * 2
+timesTwo(4);  // 8
+
+const courses = [
+  { id: 1, name: "a" },
+  { id: 2, name: "b" },
+  { id: 1, name: "a" }
+];
+
+const course = courses.find(course => course.name === "a");
+console.log(course); //{id: 1, name: "a"}
+
+5) Removing Element:
+--------------------
+//Remove End element
+const last = numbers.pop(numbers);
+console.log(numbers); //[1, 2, 3]
+console.log(last); //4
+
+//Remove Beginning element
+const first = numbers.shift(numbers);
+console.log(numbers); //[2, 3, 4]
+console.log(first); //1
+
+//Remove Middle element
+const middle = numbers.splice(2, 1);
+console.log(numbers); //[1, 2, 4]
+console.log(middle); //[3]
+
+/*
+The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements.
+*/
+
+6) Emptying an array:
+---------------------
+//Solution-1
+//It works when numbers array have no other references
+numbers = [];
+console.log(numbers);//[]
+
+//Solution-2: when numbers array have multiple references
+numbers.length = 0;
+console.log(numbers); //[]
+
+//Solution-3: using splice() method
+numbers.splice(0, numbers.length);
+console.log(numbers);
+
+//Solution-4: Using pop method (Not recommanded when array size is too larg)
+while (numbers.length > 0) {
+  numbers.pop();
+  console.log(numbers);
+}
+
+Note: Solution 1 & 2 is recommanded
+
+7) Combining and Slicing array:
+-------------------------------
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+
+const combined = first.concat(second);
+console.log(combined);//[1, 2, 3, 4, 5, 6]
+const slice = combined.slice(2, 4);
+console.log(slice);//[3, 4]
+const slice1 = combined.slice(2);
+console.log(slice1);//[3, 4, 5, 6]
+
+Note: In primitive type valye will be cped in targate array but if we have object in our array object will not coped, the references are coped. 
+
+const first = [{ id: 1 }];
+const second = [4, 5, 6];
+
+//here references will be coped
+const combined = first.concat(second);
+console.log(combined); //
+first[0].id = 20;
+
+8) The Spread Operator:
+-----------------------
+//In ES6 we can use Spread Operator for combined, copy array and many more.
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+
+const combined = [...first, ...second];
+console.log(combined); //[1, 2, 3, 4, 5, 6]
+
+const copy = [...combined];
+console.log(copy);//[1, 2, 3, 4, 5, 6]
+
+9) Iterating an Array:
+----------------------
+//using for-of loop
+const numbers = [1, 2, 3];
+
+for (let number of numbers) {
+  console.log(number); //1 2 3
+}
+
+//using forEach loop
+const numbers = [1, 2, 3];
+
+numbers.forEach(number => console.log(number)); //1 2 3
+
+10) Joining array:
+------------------
+const numbers = [1, 2, 3];
+const join = numbers.join(",");
+console.log(join); //1,2,3
+
+const message = "This is my first message";
+const parts = message.split(" ");
+console.log(parts); //["This", "is", "my", "first", "message"]
+const combined = parts.join("-");
+console.log(combined);//This-is-my-first-message
+
+11) Sorting arrays:
+-------------------
+//for primitive type
+const numbers = [2, 3, 1];
+numbers.sort();
+console.log(numbers); //[1, 2, 3]
+
+numbers.reverse();
+console.log(numbers);//[3, 2, 1]
+
+//Object type
+const courses = [
+  { id: 1, name: "Node.js" },
+  { id: 2, name: "JavaScript" },
+  { id: 3, name: "Electron JS" }
+];
+
+courses.sort(function(a, b){
+    // a < b => -1
+    // a > b => 1
+    // a === b => 0
+    if(a.name < b.name) return -1;
+    if(a.name > b.name) return 1;
+    return 0;
+});
+console.log(courses);
+
+/*
+(3) [{…}, {…}, {…}]
+0: {id: 3, name: "Electron JS"}
+1: {id: 2, name: "JavaScript"}
+2: {id: 1, name: "Node.js"}
+length: 3
+__proto__: Array(0)
+*/
+
+Note: In object type sor() function works based on ASCII code. So the result vared for uppercase and lowercase character. To solve this problem we have to convert all letter in uppercase or lowercase.
+
+problem:
+-------
+const courses = [
+  { id: 1, name: "Node.js" },
+  { id: 2, name: "javaScript" },
+  { id: 3, name: "Electron JS" }
+];
+
+courses.sort(function(a, b) {
+  if (a.name < b.name) return -1;
+  if (a.name > b.name) return 1;
+  return 0;
+});
+console.log(courses);
+
+/*
+(3) [{…}, {…}, {…}]
+0: {id: 3, name: "Electron JS"}
+1: {id: 1, name: "Node.js"}
+2: {id: 2, name: "javaScript"}
+length: 3
+__proto__: Array(0)
+*/
+
+Solution:
+---------
+const courses = [
+  { id: 1, name: "Node.js" },
+  { id: 2, name: "javaScript" },
+  { id: 3, name: "Electron JS" }
+];
+
+courses.sort(function(a, b) {
+  nameA = a.name.toUpperCase();
+  nameB = b.name.toUpperCase();
+    if (nameA < nameB) return -1;
+  if (nameA> nameB) return 1;
+  return 0;
+});
+console.log(courses);
+
+/*
+(3) [{…}, {…}, {…}]
+0: {id: 3, name: "Electron JS"}
+1: {id: 2, name: "javaScript"}
+2: {id: 1, name: "Node.js"}
+length: 3
+__proto__: Array(0)
+*/
+
+12) Testing the Elements of an array:
+-------------------------------------
+const numbers = [1, 2, 3];
+//every() return true if all value is positive and false otherwise
+const allPositive = numbers.every(function(value){
+    return value >= 0;
+});
+console.log(allPositive);//true
+
+
+const numbers1 = [1, -2, -3];
+//some() return true if atleast one value is positive
+const atLeastOnePositive = numbers1.some(function(value){
+    return value >= 0;
+});
+console.log(atLeastOnePositive);//true
+
+Note: every() ans some() method are new in ES6 some old browser may not support this.
+
+13) Filtering an Array:
+-----------------------
+const numbers = [1, -1, 2, 3];
+const filter = numbers.filter(function(value){
+    return value >= 0;
+});
+console.log(filter);//[1, 2, 3]
+
+//usinf flatArrow function
+const numbers = [1, -1, 2, 3];
+const filter = numbers.filter(value => value >= 0);
+console.log(filter);//[1, 2, 3]
+
+14) Mapping an Array:
+---------------------
+map() and filter() method returns an array.
+
+map() method is one of the powerful method in modern JS. By using this we can map each element of an array with somthing else. 
+
+const numbers = [1, -1, 2, 3];
+const filtered = numbers.filter(n => n >= 0);
+const items = filtered.map(n => "<li>" + n + "</li>"); //["<li>1</li>", "<li>2</li>", "<li>3</li>"]
+//join element and create string
+/*
+join() => <li>1</li>,<li>2</li>,<li>3</li>
+join('') => <li>1</li><li>2</li><li>3</li>
+*/
+const html = '<ul>' + items.join('') + '</ul>';
+console.log(html); //<li>1</li> <li>2</li> <li>3</li>
+
+//map with object
+const numbers = [1, -1, 2, 3];
+const filtered = numbers.filter(n => n >= 0);
+/*
+const items = filtered.map(n => {
+    const obj = {value: n};
+    return obj;
+});
+*/
+//constructor function
+const items = filtered.map(n => ({ value: n }));
+console.log(items);
+
+map() and filtter() are chainable. We can call them one after another in a chain. 
+const numbers = [1, -1, 2, 3];
+const filtered = numbers.filter(n => n >= 0);
+const items = filtered.map(n => ({ value: n }));
+console.log(items);
+
+//chaining
+const items1 = numbers.
+filter(n => n => 0).
+map(n => ({ value: n }));
+console.log(items1);
+
+/*
+(4) [{…}, {…}, {…}, {…}]
+0: {value: 1}
+1: {value: -1}
+2: {value: 2}
+3: {value: 3}
+*/
+
+15) Reducing an Array:
+----------------------

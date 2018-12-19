@@ -1,0 +1,222 @@
+Object:
+-------
+In JavaScript object means collection of property and it’s value. Or object is collection of key value pairs.
+
+Example:
+let circle = {
+  radious: 1,
+  location: {
+    x: 1,
+    y: 2
+  },
+  isVisible: true,
+  draw: function() {
+    console.log("draw");
+  }
+};
+
+circle.draw();
+
+Factory Function:
+-----------------
+A factory function is any function which is not a class or constructor that returns a (presumably new) object. In JavaScript, any function can return an object. When it does so without the new keyword, it’s a factory function.
+
+Factory functions have always been attractive in JavaScript because they offer the ability to easily produce object instances without diving into the complexities of classes and the new keyword.
+
+Example:
+//factory function
+function createCircle(radious) {
+  return{
+    //in modern javascript if the key and value are the same then we can remove the key and just add the value
+    radious,
+    draw(){
+      console.log("draw");
+    }
+  };
+}
+
+const circle1 = createCircle(10);
+console.log(circle1);
+
+Constructor Function:
+---------------------
+For use constructor function we should use Pascal notation (First letter should be upper case. Example: OneTwoThree)
+
+Example:
+function Circle(radious) {
+  this.radious = radious;
+  this.draw = function() {
+    console.log("draw");
+  };
+}
+
+const circle = new Circle(2);
+console.log(circle);
+
+/*
+when we use "new" operator 3 thing happening
+
+  1. This "new" operator create an empty javascript object like circle ={};
+  2. Next it will set this(like radious, draw) to point the empty object
+  3. Finally the new keyword return the object from the constructor function. it is implicetly we no need to write the return code 
+*/
+
+In factory function we simply call a function and this function return a new object. 
+But in constructor function we call a function using new operator and this return an object.
+In factory function we use chammel notation but in constructor function we use Pascal notation.  
+
+Dynamic Nature of Objects:
+--------------------------
+It means after creating an object we can add or remove property in the object.
+
+Example:
+const circle = {
+  radius: 1
+};
+
+circle.color = "Red";
+circle.draw = function() {};
+
+console.log(circle);
+//{radius: 1, color: "Red", draw: ƒ}
+
+delete circle.color;
+console.log(circle);
+//{radius: 1, draw: ƒ}
+
+Note:
+We cannot re-assignment const variable but we can modify the object.
+
+
+Constructor Property:
+---------------------
+Every object in JavaScript have a property called constructor
+
+All objects produced by built-in constructor functions in JavaScript have a property called constructor.
+
+Functions are object:
+---------------------
+In JavaScript all functions are object
+
+Value vs. References:
+---------------------
+In JavaScript we have two catagories of type
+1) Value Types
+    a) Number
+    a) String
+    c) Boolean
+    d) symbol
+    e) undefined
+    f) null
+2) Reference Type
+    a) Object
+    b) Function
+    c) Array
+
+Note:
+Primitive are copied by their value but object are copied by their reference. 
+
+Example:
+//value
+let number = 20;
+function increase(number) {
+  number++;
+  console.log(number); //21
+  
+}
+
+increase(number);
+console.log(number); //20
+
+//reference
+let obj = {value: 20};
+function increase(obj) {
+  obj.value++;
+  console.log(obj); //21
+  
+}
+
+increase(obj);
+console.log(obj); //21
+
+Enumerating Properties of an Object:
+------------------------------------
+Example:
+const circle = {
+  radius: 1,
+  draw() {
+    console.log("draw");
+  }
+};
+
+//for in
+for (let key in circle) {
+  console.log(key, circle[key]);
+}
+
+//for of
+for (let key of Object.keys(circle)) {
+  console.log(key);
+}
+
+for (let entry of Object.entries(circle)) {
+  console.log(entry);
+}
+
+//property or method exist in  an object
+if ("radius" in circle) console.log("yes");
+
+Cloning an Object:
+------------------
+
+const circle = {
+  radius: 1,
+  draw() {
+    console.log("draw");
+  }
+};
+
+const another = {};
+
+for (let key in circle) {
+  //like-> another['radious'] = circle['radious']
+  another[key] = circle[key];
+}
+
+console.log(another); //{radius: 1, draw: ƒ}
+
+//in modern JavaScript
+const another1 = Object.assign({}, circle);
+console.log(another1); //{radius: 1, draw: ƒ}
+
+const another2 = Object.assign(
+  {
+    color: "red"
+  },
+  circle
+);
+console.log(another2); //{color: "red", radius: 1, draw: ƒ}
+
+const another3 = { ...circle };
+console.log(another3); //{radius: 1, draw: ƒ}
+
+Garbage Collection:
+------------------
+Memory management in JavaScript is performed automatically and invisibly to us. We create primitives, objects, functions… All that takes memory.
+
+Template Literals:
+------------------
+Template literals are string literals allowing embedded expressions. You can use multi-line strings and string interpolation features with them. They were called "template strings" in prior editions of the ES2015 specification.
+
+Template literals are enclosed by the back-tick (` `)  (grave accent) character instead of double or single quotes. Template literals can contain placeholders. These are indicated by the dollar sign and curly braces (${expression}).
+
+Date:
+-----
+Date is a built  in object in JavaScript. 
+
+Example:
+const date1 = new Date();
+const date2 = new Date("may 11 2018 10:00");
+const date3 = new Date(2018, 11, 9, 10);
+
+date3.setFullYear(2011);

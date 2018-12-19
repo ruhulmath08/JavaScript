@@ -1,0 +1,73 @@
+Conditional statement:
+----------------------
+In JavaScript we have two type of Conditional Statement
+1) if-else
+2) switch-case
+
+Loop:
+-----
+In JavaScript we hava different kind of Loop
+a) for loop
+
+Example:
+for(let i=0; i<5; i++){
+    console.log('Hello JS', i);
+}
+
+b) while loop
+
+Example:
+let i = 1;
+while (i <= 5) {
+  console.log("Hello World", i);
+  i++;
+}
+
+c) do-while loop
+
+Example:
+
+let i = 1;
+do {
+  console.log(i);
+  i++;
+} while (i <= 5);
+
+d) for-in  loop
+
+Example:
+const person = {
+    name: 'Ruhul',
+    age: 20
+}
+
+for(let key in person){
+    console.log(key, person[key]);
+}
+
+e) for-of loop
+
+Example:
+
+const colors = ['red', 'green', 'blue'];
+for(let color of colors){
+    console.log(color);    
+}
+
+//prime number
+function showPrime(limit) {
+  for (let number = 2; number <= limit; number++) {
+    let isPrime = true;
+    for (let factor = 2; factor < number; factor++) {
+      if (number % factor === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+    if (isPrime) {
+      console.log(number);
+    }
+  }
+}
+
+showPrime(100);

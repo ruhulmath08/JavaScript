@@ -291,3 +291,49 @@ If we use any of the value in the logical expression we will be treated as "Fals
     
     true || ****
     // true
+
+h) BitWise Operator:
+--------------------
+    //OR
+    1 = 00000001
+    2 = 00000010
+    3 = 00000011
+    console.log(1 | 2) //BitWise OR
+
+    //AND
+    1 = 00000001
+    2 = 00000010
+    3 = 00000000
+    console.log(1 & 2) //BitWise AND
+
+Example:
+--------
+//user has Read, Write, Execute permission
+//Read permission -> 00000100
+//Write permission -> 00000010
+//Execute permission -> 00000001
+
+const readPermission = 4;
+const writePermission = 2;
+const executePermission = 1;
+
+let myPermission = 0;
+myPermission = myPermission | readPermission | writePermission;
+console.log(myPermission);
+
+let message = myPermission & readPermission ? "yes" : "no";
+console.log(message);
+
+Swapping Value:
+---------------
+let a = 'read';
+let b = 'blue';
+
+let c = a;
+a = b;
+b = c;
+
+console.log(a);
+console.log(b);
+
+
