@@ -398,3 +398,181 @@ console.log(items1);
 
 15) Reducing an Array:
 ----------------------
+const numbers = [1, -1, 2, 3];
+
+//initially a(accumulator) = 0 and c(cuttentValue) = 1 (ist element)
+//a=0; c(1st element)=1 => a=1;
+//a=1, c(2nd element)=-1 => a=0
+//a=0, c(3rd element)=2, a=2
+//a=2, c(4th element)=3, a=5
+
+const sum = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);
+
+console.log(sum); //5
+
+//Reduce code
+const sum = numbers.reduce((accumulator, currentValue) => 
+  accumulator + currentValue);
+
+console.log(sum); //5
+
+######## Exercise ########
+
+16) Array From Range
+--------------------
+
+Challange:
+const numbers = arrayFromRange(-10, -4);
+console.log(numbers);
+
+Solution:
+function arrayFromRange(min, max){
+  const output = [];
+  for(let i=min; i <= max; i++){
+    output.push(i);
+  }
+  return output
+}
+
+const numbers = arrayFromRange(-10, -4);
+console.log(numbers);
+
+Note: If we provide max value is lower than min value then we will get an empty array.
+
+17) Create a method like include method
+---------------------------------------
+include() method returns true if a value exist in the array and return false if not exist.
+MySolution:
+function myInclude(array, searchelement){
+  let b = false;
+  for(let i=0; i<array.length; i++){
+    array[i] === searchelement? b=true: b;
+  }
+  return b;
+}
+
+const a = [1,2,3,4];
+console.log(myInclude(a, 1)); //true
+console.log(myInclude(a, 0)); //false
+
+Solution-2:
+function myInclude(array, searchelement) {
+  for (let element of array) {
+    if(element === searchelement){
+      return true;
+    }
+  }
+  return false;
+}
+
+const a = [1, 2, 3, 4];
+console.log(myInclude(a, 1)); //true
+console.log(myInclude(a, 0)); //false
+
+18) Except element in an array 
+------------------------------
+Challange: Create a function which remove the existing element from an array the element provided by user.
+
+Solution:
+const numbers = [1, 2, 3, 4];
+const output = myExcept(numbers, [1]);
+console.log(output);
+
+function myExcept(array, excluded) {
+  const output = [];
+  for(let element of array){
+    if(!excluded.includes(element)){
+      output.push(element);
+    }
+  }
+  return output;
+}
+
+
+19) Moving an element
+---------------------
+const numbers = [1, 2, 3, 4];
+const output = mov(numbers, 1, -2);
+console.log(output);
+
+function mov(array, index, offset) {
+  const possition = index + offset;
+  if (possition >= array.length || possition < 0) {
+    console.error("Invalid Offset");
+    return;
+  }
+  const output = [...array];
+  const element = output.splice(index, 1)[0];
+  output.splice(possition, 0, element);
+  return output;
+}
+
+20) Count Occurrences:
+----------------------
+Challange: create a function that take two parameters (an array and a searchElement)and returns the number serchElement present in the array.
+
+Solution-1:
+-----------
+const numbers = [1, 2, 3, 4, 4];
+const count = countOccurrences(numbers, 4);
+console.log(count); //2
+
+function countOccurrences(array, searchElement) {
+  let count = 0;
+  for (let element of array) {
+    if (element === searchElement) {
+      count++;
+    }
+  }
+  return count;
+}
+
+Solution-2: Using reduce() method
+---------------------------------
+const numbers = [1, 2, 3, 4, 1];
+const count = countOccurrences(numbers, 1);
+console.log(count); //2
+
+function countOccurrences(array, searchElement) {
+  return array.reduce((accumulator, current) => {
+    const occurrence = current === searchElement ? 1 : 0;
+    console.log(accumulator, current, searchElement);
+    return accumulator + occurrence;
+  }, 0);
+}
+
+21) Get Max in a Array:
+-----------------------
+Solution-1:
+-----------
+const numbers = [1, 2, 3, 4];
+const max = getMax(numbers);
+console.log(max);
+
+function getMax(array) {
+  if (array.length === 0) {
+    return undefined;
+  }
+  let max = array[0];
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+  }
+  return max;
+}
+
+Solution-2: 
+-----------
+Use reduce() method to simplify code.
+
+const numbers = [1, 2, 3, 4];
+const max = getMax([1, 2, 3, 4, 5]);
+console.log(max);
+
+function getMax(array) {
+  if (array.length === 0) return undefined;
+  return array.reduce((a, b) => (a > b ? current : b));
+}

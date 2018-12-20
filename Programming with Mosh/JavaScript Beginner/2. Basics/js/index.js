@@ -1,12 +1,8 @@
-const numbers = [1, -1, 2, 3];
+const numbers = [1, 2, 3, 4];
+const max = getMax([1, 2, 3, 4, 5]);
+console.log(max);
 
-//a=0; c=1 => a=1;
-//a=1, c=-1 => a=0
-//a=0, c=2, a=2
-//a=2, c=3, a=5
-
-const sum = numbers.reduce((accumulator, currentValue) => {
-  return accumulator + currentValue;
-}, 0);
-
-console.log(sum);
+function getMax(array) {
+  if (array.length === 0) return undefined;
+  return array.reduce((a, b) => (a > b ? current : b));
+}
