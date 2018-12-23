@@ -3,16 +3,22 @@
 const number = [3, 4];
 
 //End-> add element at the end
-number.push(5, 6);
+number.push(5, 6); //[ 3, 4, 5, 6 ]
 console.log(number);
 
 //Beginning-> add element at the beginning
-number.unshift(1, 2);
+number.unshift(1, 2); //[ 1, 2, 3, 4, 5, 6 ]
 console.log(number);
 
 //Middle-> add element in middle
-number.splice(2, 0, 3.5);
+//splice(start: number, deleteCount: number, ...items: number[])
+//start -> from which index we want to start
+//deleteCount -> how many element we want to delete
+//items -> element we want to add
+number.splice(2, 0, 3.5); //[ 1, 2, 3.5, 3, 4, 5, 6 ]
 console.log(number);
+
+Here 
 
 The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements.
 
@@ -20,7 +26,7 @@ The splice() method changes the contents of an array by removing or replacing ex
 -------------------------------------
 a)indexOf():
 ------------
-The indexOf() method searches the array for the specified item, and returns its position.
+The indexOf() method searches the array for the specified item, and returns its position (index).
 
 The search will start at the specified position, or at the beginning if no start position is specified, and end the search at the end of the array.
 
@@ -30,9 +36,20 @@ If the item is present more than once, the indexOf method returns the position o
 
 Note: The first item has position 0, the second item has position 1, and so on.
 
-const numbers = [1, 2, 3, 1, 5];
-console.log(numbers.indexOf(1, 2)); //3
-console.log(numbers.indexOf(2)); //1
+const number = [2, 3, 4, 5, 6, 7, 8, 9, 1, 2];
+
+//find the index of element 3 => 1
+console.log(number.indexOf(3)); //1
+
+//return -1 if element not present in array
+console.log(number.indexOf(11)); //-1
+
+
+//start find from index 2 and find index of element 7 => 5
+console.log(number.indexOf(7, 2)); //5
+
+//if more than one element return the index of first element
+console.log(number.indexOf(2)); //0
 
 b) lastIndexOf():
 -----------------
