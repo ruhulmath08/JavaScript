@@ -1,18 +1,22 @@
-
-const video ={
-  title: 'a',
-  tags: ['a', 'b', 'c'],
-  showTags(){
-    this.tags.forEach(function(tag){
-      console.log(this.title, tag);
-    }, this);
+function countOccurrences(array, searchElement) {
+  if (!Array.isArray(array)) {
+    throw new Error("Not an array");
   }
-};
+  return array.reduce((accumulator, current) => {
+    const occurrence = current === searchElement ? 1 : 0;
+    return accumulator + occurrence;
+  }, 0);
+}
 
-video.showTags();
+try {
+  const numbers = [1, 2, 3, 4, 1];
+  const count = countOccurrences(100, 1);
+  console.log(count);
+} catch (e) {
+  console.log(e);
+}
 
 /*
-a a
-a b
-a c
+Error: Not an array
+    at countOccurrences
 */
