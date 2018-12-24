@@ -81,6 +81,7 @@ console.log(numbers.indexOf(2) !== -1);
 a)find():
 ---------
 The find() method returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
+
 const courses = [{ id: 1, name: "a" }, { id: 2, name: "b" }];
 
 const course = courses.find(function(course) {
