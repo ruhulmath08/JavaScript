@@ -359,7 +359,7 @@ const filter = numbers.filter(function(value){
 });
 console.log(filter);//[1, 2, 3]
 
-//usinf flatArrow function
+//using flatArrow function
 const numbers = [1, -1, 2, 3];
 const filter = numbers.filter(value => value >= 0);
 console.log(filter);//[1, 2, 3]
