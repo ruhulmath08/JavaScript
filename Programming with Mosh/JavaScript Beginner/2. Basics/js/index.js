@@ -1,20 +1,24 @@
-const numbers = [1, -1, 2, 3];
+const numbers = [1, 2, 3, 4, 5, 6];
 
-//initially a(accumulator) = 0 and c(cuttentValue) = 1 (ist element)
-//a=0; c(1st element)=1 => a=1;
-//a=1, c(2nd element)=-1 => a=0
-//a=0, c(3rd element)=2, a=2
-//a=2, c(4th element)=3, a=5
+const output = myMove(numbers, 0, -1);
+console.log(output); //Invalid offset
 
-const sum = numbers.reduce((accumulator, currentValue) => {
-  return accumulator + currentValue;
-}, 0);
+const output1 = myMove(numbers, 0, 2);
+console.log(output1); //[ 2, 3, 1, 4, 5, 6 ]
 
-console.log(sum); //5
+function myMove(array, index, offset){
+  const possition = index+offset;
+  if(possition >= array.length || possition < 0){
+    console.error('Invalid offset');
+    return;
+  }
 
-//or arrow function
+  const output = [...array];
+  /*
+  splice() method return an array. In this case we will remove one item. And we will access the just removing item by [0]
+  */
+  const element = output.splice(index, 1)[0];
+  output.splice(possition, 0, element);
+  return output;
+}
 
-const sum1 = numbers.reduce(
-  (accumulator, currentValue) => accumulator + currentValue
-);
-console.log(sum1); //5

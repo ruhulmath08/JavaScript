@@ -491,23 +491,36 @@ console.log(myInclude(a, 0)); //false
 
 18) Except element in an array 
 ------------------------------
-Challange: Create a function which remove the existing element from an array the element provided by user.
+Create a function which takes two parameters one is an array and another is also an array. The function returns an array without the second array.
+
+const numbers = [1, 2, 3, 4];
+
+const output = except(numbers, [1]);
+console.log(output); //[ 2, 3, 4];
+
+const output = except(numbers, [1, 2]);
+console.log(output); //[3, 4];
+
 
 Solution:
-const numbers = [1, 2, 3, 4];
-const output = myExcept(numbers, [1]);
-console.log(output);
+const numbers = [1, 2, 3, 1, 1, 4];
 
-function myExcept(array, excluded) {
+function myExcept(array, excluded){
   const output = [];
-  for(let element of array){
-    if(!excluded.includes(element)){
-      output.push(element);
+  for(let number of array){
+    if(!excluded.includes(number)){
+      output.push(number);
     }
   }
   return output;
 }
 
+
+const output = myExcept(numbers, [1]);
+console.log(output); //[ 2, 3, 4];
+
+const output1 = myExcept(numbers, [1, 4]);
+console.log(output1); //[3, 4];
 
 19) Moving an element
 ---------------------
