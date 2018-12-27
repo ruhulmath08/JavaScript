@@ -1,24 +1,14 @@
-const numbers = [1, 2, 3, 4, 5, 6];
+const movies = [
+  { title: "a", year: 2018, rating: 4.5 },
+  { title: "b", year: 2018, rating: 4.7 },
+  { title: "c", year: 2018, rating: 3 },
+  { title: "d", year: 2017, rating: 4.5 }
+];
 
-const output = myMove(numbers, 0, -1);
-console.log(output); //Invalid offset
+const result = movies
+  .filter(m => m.year === 2018 && m.rating >= 4) //All the movies in 2018 with rating > 4
+  .sort((a, b) => a.rating - b.rating) //Sort them by their rating
+  .reverse() //Descending order
+  .map(m => m.title); //Pick their title
 
-const output1 = myMove(numbers, 0, 2);
-console.log(output1); //[ 2, 3, 1, 4, 5, 6 ]
-
-function myMove(array, index, offset){
-  const possition = index+offset;
-  if(possition >= array.length || possition < 0){
-    console.error('Invalid offset');
-    return;
-  }
-
-  const output = [...array];
-  /*
-  splice() method return an array. In this case we will remove one item. And we will access the just removing item by [0]
-  */
-  const element = output.splice(index, 1)[0];
-  output.splice(possition, 0, element);
-  return output;
-}
-
+console.log(result); //["b", "a"]

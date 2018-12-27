@@ -605,7 +605,7 @@ console.log(max);
 
 function getMax(array) {
   if (array.length === 0) return undefined;
-  return array.reduce((a, b) => (a > b ? current : b));
+  return array.reduce((a, b) => (a > b ? a : b));
 }
 
 22) Movies:
