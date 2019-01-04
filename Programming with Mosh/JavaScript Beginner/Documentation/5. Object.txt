@@ -63,11 +63,11 @@ when we use "new" operator 3 thing happening
 
 In factory function we simply call a function and this function return a new object. 
 But in constructor function we call a function using new operator and this return an object.
-In factory function we use chammel notation but in constructor function we use Pascal notation.  
+In factory function we use camel notation but in constructor function we use Pascal notation.  
 
 Dynamic Nature of Objects:
 --------------------------
-It means after creating an object we can add or remove property in the object.
+It means after creating an object we can add or remove property from the object.
 
 Example:
 const circle = {
@@ -90,17 +90,26 @@ We cannot re-assignment const variable but we can modify the object.
 
 Constructor Property:
 ---------------------
-Every object in JavaScript have a property called constructor
+Every object in JavaScript have a property called constructor and that references the function that was used to construct or create that object. When we create an object using the object literal syntax ({} => object literal), internally the JavaScript engine uses this constructor function. 
 
-All objects produced by built-in constructor functions in JavaScript have a property called constructor.
+If we use object literal JavaScript translet it as follow:
+
+	let x = {};
+	let x = new Object();
+
+In JavaScript we have a few other built in constructor. For example, we have
+
+new String() //'', "", ``
+new Boolean() // true, false
+new Number() //1, 2, 3, .......
 
 Functions are object:
 ---------------------
-In JavaScript all functions are object
+One of the confusing concept in JavaScript is functions. In JavaScript functions are objects. 
 
 Value vs. References:
 ---------------------
-In JavaScript we have two catagories of type
+In JavaScript we have two catagories of types
 1) Value Types
     a) Number
     a) String
