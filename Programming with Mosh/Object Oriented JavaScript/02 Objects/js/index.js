@@ -1,17 +1,26 @@
-
-//only radius and draw is access through circle object
-function Circle(radius) {
-  this.radius = radius;
-  let defaultLocation = {x: 0, y: 0};
-  let computeOptimumLocation = function(){
-    // ...
+class Employee {
+  constructor(name, age) {
+    this._name = name;
+    this.age = age;
   }
-  this.draw = function() {
-    computeOptimumLocation();
-    defaultLocation();
-    console.log("draw");
-  };
+
+  doWork() {
+    return `${this.name} is working`;
+  }
+
+  get name() {
+    return this._name.toUpperCase();
+  }
+
+  set name(newName) {
+    if (newName) {
+      this._name = newName;
+    }
+  }
 }
 
-const circle = new Circle(20);
-
+let man = new Employee("Ruhul", 30);
+console.log(man.name, man.age); //RUHUL 30
+man.name = "Shamim";
+man.age = 28;
+console.log(man.name, man.age); //SHAMIM 28
