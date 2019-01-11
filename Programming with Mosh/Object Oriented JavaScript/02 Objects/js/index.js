@@ -1,26 +1,35 @@
-class Employee {
-  constructor(name, age) {
-    this._name = name;
-    this.age = age;
-  }
+function StopWatch(){
+  let startTime, endTime, running, duration = 0;
 
-  doWork() {
-    return `${this.name} is working`;
-  }
-
-  get name() {
-    return this._name.toUpperCase();
-  }
-
-  set name(newName) {
-    if (newName) {
-      this._name = newName;
+  this.start = function(){
+    if(running){
+      throw Error("StopWatch already running!!!");
     }
-  }
-}
+    running = true;
+    startTime = new Date();
+  };
 
-let man = new Employee("Ruhul", 30);
-console.log(man.name, man.age); //RUHUL 30
-man.name = "Shamim";
-man.age = 28;
-console.log(man.name, man.age); //SHAMIM 28
+  this.stop = function(){
+    if(!running){
+      throw Error("StopWatch already stop!!!");
+    }
+    running = false;
+    endTime = new Date();
+
+    const second = (endTime.getTime() - startTime.getTime())/1000;
+    duration += second;
+  };
+
+  this.reset = function(){
+    startTime = null;
+    endTime = null;
+    running = false;
+    duration = 0;
+  };
+
+  Object.defineProperty(this, "duration", {
+    get: function(){
+      return duration;
+    }
+  });
+}
