@@ -1,10 +1,19 @@
-let array = [];
-//both are same
-console.log(Array.prototype);
-console.log(array.__proto__);
+function Circle(radius) {
+  this.radius = radius;
+  this.move = function() {
+    this.draw();
+    console.log("move");
+  };
+}
+
+Circle.prototype.draw = function() {
+  console.log("draw");
+};
+
+const circle1 = new Circle(10);
+console.log(circle1.move());
 
 /*
-[constructor: ƒ, concat: ƒ, copyWithin: ƒ, fill: ƒ, find: ƒ, …]
-
-[constructor: ƒ, concat: ƒ, copyWithin: ƒ, fill: ƒ, find: ƒ, …]
+draw
+move
 */
