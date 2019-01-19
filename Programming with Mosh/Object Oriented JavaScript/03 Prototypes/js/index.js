@@ -1,19 +1,32 @@
+function Shape() {}
+
+Shape.prototype.duplicate = function() {
+  console.log("duplicate");
+};
+
 function Circle(radius) {
   this.radius = radius;
-  this.move = function() {
-    this.draw();
-    console.log("move");
-  };
 }
+
+//circleBase is like this
+//Circle.prototype = Object.create(Object.prototype); //objectBase
+
+//Create ShapeBase prototype and set to to CircleBase
+Circle.prototype = Object.create(Shape.prototype);
 
 Circle.prototype.draw = function() {
   console.log("draw");
 };
 
-const circle1 = new Circle(10);
-console.log(circle1.move());
+const s = new Shape();
+const c = new Circle(20);
 
+console.log(new Circle(20));
 /*
-draw
-move
+Circle {radius: 20}
+radius: 20
+__proto__:
+draw: ƒ ()
+constructor: ƒ Circle(radius)
+__proto__: Object
 */
