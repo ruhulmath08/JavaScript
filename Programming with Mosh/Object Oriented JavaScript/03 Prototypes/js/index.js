@@ -1,32 +1,33 @@
+function extend(Child, Parent) {
+  Child.prototype = Object.create(Parent.prototype);
+  Child.prototype.constructor = Child;
+}
+
 function Shape() {}
+
+function Circle() {}
+
+extend(Circle, Shape);
 
 Shape.prototype.duplicate = function() {
   console.log("duplicate");
 };
 
-function Circle(radius) {
-  this.radius = radius;
-}
+function Circle() {}
 
-//circleBase is like this
-//Circle.prototype = Object.create(Object.prototype); //objectBase
+//Circle inherit from Shape
+extend(Circle, Shape);
 
-//Create ShapeBase prototype and set to to CircleBase
-Circle.prototype = Object.create(Shape.prototype);
-
-Circle.prototype.draw = function() {
-  console.log("draw");
+//must be places after "extend(Circle, Shape);"
+//method overriding
+Circle.prototype.duplicate = function() {
+  Shape.prototype.duplicate.call(this);
+  console.log("duplicate-circle");
 };
+const c = new Circle();
+console.log(c.duplicate());
 
-const s = new Shape();
-const c = new Circle(20);
-
-console.log(new Circle(20));
 /*
-Circle {radius: 20}
-radius: 20
-__proto__:
-draw: ƒ ()
-constructor: ƒ Circle(radius)
-__proto__: Object
+duplicate
+duplicate-circle
 */
