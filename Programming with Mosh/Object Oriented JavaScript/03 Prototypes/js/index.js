@@ -7,27 +7,32 @@ function Shape() {}
 
 function Circle() {}
 
-extend(Circle, Shape);
-
 Shape.prototype.duplicate = function() {
   console.log("duplicate");
 };
 
-function Circle() {}
-
-//Circle inherit from Shape
 extend(Circle, Shape);
 
-//must be places after "extend(Circle, Shape);"
-//method overriding
 Circle.prototype.duplicate = function() {
-  Shape.prototype.duplicate.call(this);
   console.log("duplicate-circle");
 };
-const c = new Circle();
-console.log(c.duplicate());
+
+function Square() {}
+
+extend(Square, Shape);
+
+Square.prototype.duplicate = function() {
+  console.log("duplicate-square");
+};
+
+const shapes = [new Circle(), new Square()];
+
+for (let shape of shapes) {
+  shape.duplicate();
+}
 
 /*
-duplicate
 duplicate-circle
+duplicate-square
 */
+""
