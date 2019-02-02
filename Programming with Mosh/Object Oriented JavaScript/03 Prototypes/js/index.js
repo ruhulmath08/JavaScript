@@ -2,9 +2,11 @@ const _items = new WeakMap();
 
 class Stack {
   constructor() {
+    //_items.set(key->this object, value->emptyArray [])
     _items.set(this, []);
   }
 
+  //we access the array [] here
   push(obj) {
     _items.get(this).push(obj);
   }
@@ -16,6 +18,7 @@ class Stack {
       throw new Error("Stack is empty");
     }
 
+    //remove the object at the end of array
     return items.pop();
   }
 
@@ -33,3 +36,4 @@ class Stack {
     return _items.get(this).length;
   }
 }
+
